@@ -7,8 +7,7 @@ public abstract class Empleado {
     protected String puesto;
     protected double salario;
     protected ArrayList<Documento> documentos;
-    public Empleado(){
-    }
+
     public Empleado(String nombre, String puesto, double salario){
         this.nombre=nombre;
         this.puesto=puesto;
