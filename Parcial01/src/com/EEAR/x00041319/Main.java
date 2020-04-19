@@ -28,7 +28,7 @@ public class Main {
             case 1:
                 System.out.println("¿Que tipo de empleado desea ingresar?");
                 System.out.println("1. Plaza Fija");
-                System.out.println("1. Servicio Profesional");
+                System.out.println("2. Servicio Profesional");
                 byte tipo = sc.nextByte();
                 sc.nextLine();
                 switch (tipo){
