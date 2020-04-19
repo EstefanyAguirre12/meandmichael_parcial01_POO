@@ -19,9 +19,9 @@ public class Empresa {
         return planilla;
     }
 
-    public void addEmpleado(Empleado empleados){
+    public void addEmpleado(Empleado empleados ){
 
-
+    planilla.add(empleados);
 
     }
 
