@@ -6,7 +6,7 @@ public abstract class Empleado {
     protected String nombre;
     protected String puesto;
     protected double salario;
-    protected ArrayList<Documento> documentos;
+    protected ArrayList<Documento> documentos= new ArrayList();;
 
     public Empleado(String nombre, String puesto, double salario){
         this.nombre=nombre;
@@ -24,11 +24,11 @@ public abstract class Empleado {
             }
 
             if(existe)
-                throw new AlreadyExistAppException("Ya existe un documento con ese numero");
+                throw new AlreadyExistException("Ya existe un documento con ese numero");
 
             documentos.add(documento);
         }
-        catch(AlreadyExistAppException ex){
+        catch(AlreadyExistException ex){
             System.out.println(ex.getMessage());
         }
         catch(Exception ex){
@@ -44,7 +44,7 @@ public abstract class Empleado {
         if(aux != null)
             documentos.remove(aux);
         else
-            throw new NotFoundException("Aplicacion no encontrada, no es posible desinstalar");
+            throw new NotFoundException("No existe ese documento");
     }
     public ArrayList<Documento> getDocumentos() {
         return documentos;

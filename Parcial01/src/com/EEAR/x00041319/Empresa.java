@@ -1,13 +1,14 @@
 package com.EEAR.x00041319;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
 
     private String nombre;
-    List<Empleado> planilla;
+    List<Empleado> planilla= new ArrayList();;
 
-    public void Empresa(String name){
+    public Empresa(String name){
         this.nombre =nombre;
     }
 
@@ -20,9 +21,7 @@ public class Empresa {
     }
 
     public void addEmpleado(Empleado empleados ){
-
-    planilla.add(empleados);
-
+        planilla.add(empleados);
     }
 
     public void quitEmpelado(String empleado) throws NotFoundException {
