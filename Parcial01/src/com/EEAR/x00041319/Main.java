@@ -1,14 +1,17 @@
 package com.EEAR.x00041319;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NotFoundException {
 	// write your code here
         byte opcion = 0;
-        String empresa, nombre, puesto, documento, numerodocumento, otro;
+        String empresa, nombre, puesto, documento, numerodocumento, otro, nombreempleado;
         double salario;
         int extension, mesescontrato;
 
@@ -16,8 +19,8 @@ public class Main {
         empresa = sc.nextLine();
 
         Empresa emp = new Empresa(empresa);
-        PlazaFija p;
-        ServicioProfesional s;
+        PlazaFija p = null;
+        ServicioProfesional s = null;
 
         do{
             Menu();
@@ -70,6 +73,47 @@ public class Main {
                 break;
 
             case 2:
+                String aux2="", aux3="";
+
+                System.out.println("Ingrese el nombre del empleado: "); nombreempleado = sc.nextLine();
+                System.out.println("Ingrese el numero de documento: "); numerodocumento = sc.nextLine();
+
+                for (Empleado aux:emp.getPlanilla()) {
+                    if(nombreempleado.equals(aux.getNombre())){
+                        aux2=aux.getNombre();
+                    }
+                }
+
+                for (Documento aux: p.getDocumentos()) {
+                    if(numerodocumento.equals(aux.getNumero())){
+                        aux3=aux.getNumero();
+                    }
+                }
+
+                if (aux3==""){
+                    for (Documento aux: s.getDocumentos()) {
+                        if(numerodocumento.equals(aux.getNumero())){
+                            aux3=aux.getNumero();
+                        }
+                    }
+
+                    if(aux2=="" && aux3==""){
+                        System.out.println("Empleado o documento no encontrado");
+                    }else{
+                        emp.quitEmpelado(aux2);
+                        s.removeDocumento(aux3);
+                        System.out.println("empleado despedido");
+                    }
+                }
+
+                else if(aux2=="" && aux3==""){
+                    System.out.println("Empleado o documento no encontrado");
+                }else{
+                    emp.quitEmpelado(aux2);
+                    p.removeDocumento(aux3);
+                    System.out.println("empleado despedido");
+                }
+
                 break;
 
             case 3:
