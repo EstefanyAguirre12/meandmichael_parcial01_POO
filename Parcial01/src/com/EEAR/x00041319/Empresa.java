@@ -21,7 +21,25 @@ public class Empresa {
     }
 
     public void addEmpleado(Empleado empleados ){
-        planilla.add(empleados);
+        try{
+            boolean existe = false;
+
+            for(Empleado a : planilla){
+                if(a.getNombre().equals(empleados.getNombre()))
+                    existe = true;
+            }
+
+            if(existe)
+                throw new AlreadyExistException("Ya existe un empleado con ese nombre");
+
+            planilla.add(empleados);
+        }
+        catch(AlreadyExistException ex){
+            System.out.println(ex.getMessage());
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public void quitEmpelado(String empleado) {
