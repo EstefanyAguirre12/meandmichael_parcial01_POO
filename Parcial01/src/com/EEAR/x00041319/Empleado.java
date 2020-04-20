@@ -35,16 +35,10 @@ public abstract class Empleado {
             System.out.println(ex.getMessage());
         }
     }
-    public void removeDocumento(String nombre) throws NotFoundException {
-        Documento aux = null;
-        for(Documento doc : documentos){
-            if(doc.getNombre().equals(nombre))
-                aux = doc;
+    public void removeDocumento(String empnumero) throws NotFoundException {
+        if(documentos.removeIf(s->s.getNumero().equals(empnumero))) {
+            System.out.println("Documento eliminado");
         }
-        if(aux != null)
-            documentos.remove(aux);
-        else
-            throw new NotFoundException("No existe ese documento");
     }
     public ArrayList<Documento> getDocumentos() {
         return documentos;

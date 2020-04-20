@@ -24,16 +24,9 @@ public class Empresa {
         planilla.add(empleados);
     }
 
-    public void quitEmpelado(String empleado) throws NotFoundException {
-
-        Empleado aux = null;
-        for(Empleado emp : planilla){
-            if(emp.getNombre().equals(nombre))
-                aux = emp;
+    public void quitEmpelado(String empleado) {
+        if(planilla.removeIf(s->s.getNombre().equals(empleado))) {
+            System.out.println("Empleado despedido");
         }
-        if(aux != null)
-            planilla.remove(aux);
-        else
-            throw new NotFoundException("Aplicacion no encontrada, no es posible desinstalar");
     }
 }

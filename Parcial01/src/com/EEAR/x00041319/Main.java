@@ -102,7 +102,7 @@ public class Main {
                     }else{
                         emp.quitEmpelado(aux2);
                         s.removeDocumento(aux3);
-                        System.out.println("empleado despedido");
+
                     }
                 }
 
@@ -111,7 +111,7 @@ public class Main {
                 }else{
                     emp.quitEmpelado(aux2);
                     p.removeDocumento(aux3);
-                    System.out.println("empleado despedido");
+
                 }
 
                 break;
