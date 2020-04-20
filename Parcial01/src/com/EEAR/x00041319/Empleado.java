@@ -37,7 +37,7 @@ public abstract class Empleado {
     }
     public void removeDocumento(String empnumero) throws NotFoundException {
         if(documentos.removeIf(s->s.getNumero().equals(empnumero))) {
-            System.out.println("Documento eliminado");
+            System.out.println("Documento eliminado con exito");
         }
     }
     public ArrayList<Documento> getDocumentos() {

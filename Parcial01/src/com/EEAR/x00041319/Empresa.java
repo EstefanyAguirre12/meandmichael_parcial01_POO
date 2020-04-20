@@ -26,7 +26,7 @@ public class Empresa {
 
     public void quitEmpelado(String empleado) {
         if(planilla.removeIf(s->s.getNombre().equals(empleado))) {
-            System.out.println("Empleado despedido");
+            System.out.println("Empleado despedido con exito");
         }
     }
 }
