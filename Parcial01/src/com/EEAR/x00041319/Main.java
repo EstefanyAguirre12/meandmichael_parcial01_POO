@@ -12,8 +12,9 @@ public class Main {
 	// write your code here
         byte opcion = 0;
         String empresa, nombre, puesto, documento, numerodocumento, otro, nombreempleado;
-        double salario;
-        int extension, mesescontrato;
+        double salario = 0;
+        int extension = 0, mesescontrato = 0;
+        boolean esNumero;
 
         System.out.println("Ingrese el nombre de la empresa: ");
         empresa = sc.nextLine();
@@ -38,8 +39,19 @@ public class Main {
                     case 1:
                         System.out.print("Nombre: "); nombre = sc.nextLine();
                         System.out.print("Puesto: "); puesto = sc.nextLine();
-                        System.out.print("Salario: "); salario = sc.nextDouble();
-                        System.out.print("Extension: "); extension = sc.nextInt();sc.nextLine();
+                        do {
+                            if (sc.hasNextDouble()){
+                                System.out.print("Salario: "); salario = sc.nextDouble();
+                                esNumero = true;
+                            }
+                        } while (esNumero = false);
+
+                        do {
+                            if (sc.hasNextInt()){
+                                System.out.print("Extension: "); extension = sc.nextInt();sc.nextLine();
+                                esNumero = true;
+                            }
+                        } while (esNumero = false);
 
                         p=new PlazaFija(nombre, puesto, salario, extension);
                         emp.addEmpleado(p);
@@ -55,8 +67,21 @@ public class Main {
                     case 2:
                         System.out.print("Nombre: "); nombre = sc.nextLine();
                         System.out.print("Puesto: "); puesto = sc.nextLine();
-                        System.out.print("Salario: "); salario = sc.nextDouble();
-                        System.out.print("Meses de contrato: "); mesescontrato = sc.nextInt();sc.nextLine();
+                        do {
+                            if (sc.hasNextDouble()){
+                                System.out.print("Salario: "); salario = sc.nextDouble();
+                                esNumero = true;
+                            }
+                        } while (esNumero = false);
+
+                        System.out.print("Meses de contrato: ");
+                        do {
+                            if (sc.hasNextInt()){
+                                mesescontrato = sc.nextInt();sc.nextLine();
+                                esNumero = true;
+                            }
+                        } while (esNumero = false);
+
 
                         s=new ServicioProfesional(nombre, puesto, salario, mesescontrato);
                         emp.addEmpleado(s);
