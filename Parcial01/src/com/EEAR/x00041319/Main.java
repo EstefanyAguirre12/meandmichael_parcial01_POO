@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws NotFoundException {
         // write your code here
-        byte opcion = 0;
+        byte opcion = 0,tipo = 0;
         String empresa, nombre, puesto, documento, numerodocumento, otro, nombreempleado;
         double salario = 0;
         int extension = 0, mesescontrato = 0;
@@ -34,98 +34,115 @@ public class Main {
 
                 switch (opcion){
                     case 1:
-                        System.out.println("¿Que tipo de empleado desea ingresar?");
-                        System.out.println("1. Plaza Fija");
-                        System.out.println("2. Servicio Profesional");
-                        byte tipo = sc.nextByte();
-                        sc.nextLine();
-                        switch (tipo){
-                            case 1:
-                                System.out.print("Nombre: "); nombre = sc.nextLine();
-                                System.out.print("Puesto: "); puesto = sc.nextLine();
 
-                                do {
-                                    System.out.print("Salario: ");
-                                    if (sc.hasNextDouble()){
-                                        salario = sc.nextDouble();
-                                        esNumero = true;
-                                    }
-                                    else {
-                                        System.out.println("Ingrese un numero");
-                                        esNumero = false;
-                                        sc.next();
-                                    }
-                                } while (!(esNumero));
+                        do {
 
+                            System.out.println("¿Que tipo de empleado desea ingresar?");
+                            System.out.println("1. Plaza Fija");
+                            System.out.println("2. Servicio Profesional");
+                            System.out.println("3.regresar");
 
-                                do {
-                                    System.out.print("Extension: ");
-                                    if (sc.hasNextInt()){
-                                        extension = sc.nextInt();sc.nextLine();
-                                        esNumero = true;
+                            if (sc.hasNextByte()){
+                                tipo = sc.nextByte();
+                                sc.nextLine();
 
-                                    }
-                                    else {
-                                        System.out.println("Ingrese un numero entero");
-                                        esNumero = false;
-                                        sc.next();
-                                    }
-                                } while (!(esNumero));
+                                switch (tipo){
+                                    case 1:
+                                        System.out.print("Nombre: "); nombre = sc.nextLine();
+                                        System.out.print("Puesto: "); puesto = sc.nextLine();
 
-                                p=new PlazaFija(nombre, puesto, salario, extension);
-                                emp.addEmpleado(p);
-                                do{
-                                    System.out.print("Documento: "); documento = sc.nextLine();
-                                    System.out.print("Numero de documento: "); numerodocumento = sc.nextLine();
-                                    p.addDocumentos(new Documento(documento, numerodocumento));
-                                    System.out.println("¿Desea ingresar otro?(S/N)");
-                                    otro = sc.nextLine();
-                                }while (otro.equals("S"));
-
-                                break;
-                            case 2:
-                                System.out.print("Nombre: "); nombre = sc.nextLine();
-                                System.out.print("Puesto: "); puesto = sc.nextLine();
-                                do {
-                                    System.out.print("Salario: ");
-                                    if (sc.hasNextDouble()){
-                                        salario = sc.nextDouble();
-                                        esNumero = true;
-                                    }
-                                    else {
-                                        System.out.println("Ingrese un numero");
-                                        esNumero = false;
-                                        sc.next();
-                                    }
-                                } while (!(esNumero));
+                                        do {
+                                            System.out.print("Salario: ");
+                                            if (sc.hasNextDouble()){
+                                                salario = sc.nextDouble();
+                                                esNumero = true;
+                                            }
+                                            else {
+                                                System.out.println("Ingrese un numero");
+                                                esNumero = false;
+                                                sc.next();
+                                            }
+                                        } while (!(esNumero));
 
 
-                                do {
-                                    System.out.print("Meses de contrato: ");
-                                    if (sc.hasNextInt()){
-                                        mesescontrato = sc.nextInt();sc.nextLine();
-                                        esNumero = true;
-                                    }
-                                    else {
-                                        System.out.println("Ingrese un numero entero");
-                                        esNumero = false;
-                                        sc.next();
-                                    }
-                                } while (!(esNumero));
+                                        do {
+                                            System.out.print("Extension: ");
+                                            if (sc.hasNextInt()){
+                                                extension = sc.nextInt();sc.nextLine();
+                                                esNumero = true;
+
+                                            }
+                                            else {
+                                                System.out.println("Ingrese un numero entero");
+                                                esNumero = false;
+                                                sc.next();
+                                            }
+                                        } while (!(esNumero));
+
+                                        p=new PlazaFija(nombre, puesto, salario, extension);
+                                        emp.addEmpleado(p);
+                                        do{
+                                            System.out.print("Documento: "); documento = sc.nextLine();
+                                            System.out.print("Numero de documento: "); numerodocumento = sc.nextLine();
+                                            p.addDocumentos(new Documento(documento, numerodocumento));
+                                            System.out.println("¿Desea ingresar otro?(S/N)");
+                                            otro = sc.nextLine();
+                                        }while (otro.equals("S"));
+
+                                        break;
+                                    case 2:
+                                        System.out.print("Nombre: "); nombre = sc.nextLine();
+                                        System.out.print("Puesto: "); puesto = sc.nextLine();
+                                        do {
+                                            System.out.print("Salario: ");
+                                            if (sc.hasNextDouble()){
+                                                salario = sc.nextDouble();
+                                                esNumero = true;
+                                            }
+                                            else {
+                                                System.out.println("Ingrese un numero");
+                                                esNumero = false;
+                                                sc.next();
+                                            }
+                                        } while (!(esNumero));
 
 
-                                s=new ServicioProfesional(nombre, puesto, salario, mesescontrato);
-                                emp.addEmpleado(s);
-                                do{
-                                    System.out.print("Documento: "); documento = sc.nextLine();
-                                    System.out.print("Numero de documento: "); numerodocumento = sc.nextLine();
-                                    s.addDocumentos(new Documento(documento, numerodocumento));
-                                    System.out.println("¿Desea ingresar otro?(S/N)");
-                                    otro = sc.nextLine();
-                                }while (otro.equals("S"));
+                                        do {
+                                            System.out.print("Meses de contrato: ");
+                                            if (sc.hasNextInt()){
+                                                mesescontrato = sc.nextInt();sc.nextLine();
+                                                esNumero = true;
+                                            }
+                                            else {
+                                                System.out.println("Ingrese un numero entero");
+                                                esNumero = false;
+                                                sc.next();
+                                            }
+                                        } while (!(esNumero));
 
-                                break;
-                        }
+
+                                        s=new ServicioProfesional(nombre, puesto, salario, mesescontrato);
+                                        emp.addEmpleado(s);
+                                        do{
+                                            System.out.print("Documento: "); documento = sc.nextLine();
+                                            System.out.print("Numero de documento: "); numerodocumento = sc.nextLine();
+                                            s.addDocumentos(new Documento(documento, numerodocumento));
+                                            System.out.println("¿Desea ingresar otro?(S/N)");
+                                            otro = sc.nextLine();
+                                        }while (otro.equals("S"));
+
+                                        break;
+                                }
+
+                            } else {
+                                System.out.println("Ingrese un numero de las opciones");
+                                tipo = 0;
+                                sc.next();
+                            }
+
+                        }while (tipo != 3);
+
+
                         break;
 
                     case 2:
