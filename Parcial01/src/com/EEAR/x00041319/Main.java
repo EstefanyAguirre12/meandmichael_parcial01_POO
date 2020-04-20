@@ -134,24 +134,37 @@ public class Main {
                         System.out.println("Ingrese el nombre del empleado: "); nombreempleado = sc.nextLine();
                         System.out.println("Ingrese el numero de documento: "); numerodocumento = sc.nextLine();
 
+
                         for (Empleado aux:emp.getPlanilla()) {
                             if(nombreempleado.equals(aux.getNombre())){
                                 aux2=aux.getNombre();
                             }
                         }
 
-                        for (Documento aux: p.getDocumentos()) {
-                            if(numerodocumento.equals(aux.getNumero())){
-                                aux3=aux.getNumero();
+                        if (p == null){
+                            System.out.println("No hay empleados de plaza fija");
+                        }
+                        else {
+
+
+                            for (Documento aux: p.getDocumentos()) {
+                                if(numerodocumento.equals(aux.getNumero())){
+                                    aux3=aux.getNumero();
+                                }
                             }
+
+
                         }
 
-                        if (aux3==""){
+                        if (aux3=="" && s !=null){
+
                             for (Documento aux: s.getDocumentos()) {
                                 if(numerodocumento.equals(aux.getNumero())){
                                     aux3=aux.getNumero();
                                 }
                             }
+
+
 
                             if(aux2=="" && aux3==""){
                                 System.out.println("Empleado o documento no encontrado");
@@ -163,7 +176,7 @@ public class Main {
                         }
 
                         else if(aux2=="" && aux3==""){
-                            System.out.println("Empleado o documento no encontrado");
+                            System.out.println("No hay empleados registrados");
                         }else{
                             emp.quitEmpleado(aux2);
                             p.removeDocumento(aux3);
