@@ -184,7 +184,7 @@ public class Main {
                         String cadena = "";
 
                         for (Empleado aux:emp.getPlanilla()) {
-                            cadena+="\nEmpleado: "+aux.getNombre()+" Cargo: "+aux.getPuesto()+" Salario: "+aux.getSalario()+" ";
+                            cadena+="\nNombre: "+aux.getNombre()+" Cargo: "+aux.getPuesto()+" Salario: "+aux.getSalario()+" ";
                             if(aux instanceof PlazaFija){
                                 cadena+="Plaza Fija"+"\nDocumentos: " ;
                             }
@@ -192,7 +192,7 @@ public class Main {
                                 cadena+="Servicio Profesional"+"\nDocumentos: ";
                             }
                             for (Documento aux1:aux.getDocumentos()) {
-                                cadena+="Nombre: "+aux1.getNombre()+" Numero: "+aux1.getNumero()+" ";
+                                cadena+="\nNombre: "+aux1.getNombre()+" Numero: "+aux1.getNumero()+" ";
                             }
                         }
                         System.out.println(cadena);
@@ -203,7 +203,7 @@ public class Main {
                         String n = sc.nextLine();
                         for (Empleado aux:emp.getPlanilla()) {
                             if(aux.getNombre().equals(n)){
-                                System.out.println(CalculadoraImpuestos.calcularPago(aux));
+                                System.out.println("Pago del empleado: "+CalculadoraImpuestos.calcularPago(aux));
                             }
                         }
                         break;
@@ -214,8 +214,6 @@ public class Main {
                     case 6:
                         break;
 
-
-
                 }
 
             }  else {
@@ -225,9 +223,7 @@ public class Main {
             }
 
         }
-
         while (opcion !=6);
-
 
     }
 
