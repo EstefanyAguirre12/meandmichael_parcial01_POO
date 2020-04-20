@@ -135,9 +135,16 @@ public class Main {
                 break;
 
             case 4:
+                System.out.println("Ingrese el nombre del empleado: ");
+                String n = sc.nextLine();
+                for (Empleado aux:emp.getPlanilla()) {
+                    if(aux.getNombre().equals(n)){
+                        System.out.println(CalculadoraImpuestos.calcularPago(aux));
+                    }
+                }
                 break;
-
             case 5:
+                System.out.println(CalculadoraImpuestos.mostrarTotales());
                 break;
 
             case 6:

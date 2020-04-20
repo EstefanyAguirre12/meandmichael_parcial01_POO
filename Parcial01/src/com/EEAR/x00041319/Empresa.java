@@ -26,7 +26,7 @@ public class Empresa {
 
     public void quitEmpelado(String empleado) throws NotFoundException {
 
-            Empleado aux = null;
+        Empleado aux = null;
         for(Empleado emp : planilla){
             if(emp.getNombre().equals(nombre))
                 aux = emp;
