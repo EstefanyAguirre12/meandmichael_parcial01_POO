@@ -141,18 +141,13 @@ public class Main {
                             }
                         }
 
-                        if (p == null){
-                            System.out.println("No hay empleados de plaza fija");
-                        }
-                        else {
-
+                        if (p != null){
 
                             for (Documento aux: p.getDocumentos()) {
                                 if(numerodocumento.equals(aux.getNumero())){
                                     aux3=aux.getNumero();
                                 }
                             }
-
 
                         }
 
