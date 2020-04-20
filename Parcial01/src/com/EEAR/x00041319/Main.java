@@ -39,9 +39,10 @@ public class Main {
                     case 1:
                         System.out.print("Nombre: "); nombre = sc.nextLine();
                         System.out.print("Puesto: "); puesto = sc.nextLine();
+                        System.out.print("Salario: ");
                         do {
                             if (sc.hasNextDouble()){
-                                System.out.print("Salario: "); salario = sc.nextDouble();
+                                salario = sc.nextDouble();
                                 esNumero = true;
                             }
                         } while (esNumero = false);
@@ -125,7 +126,7 @@ public class Main {
                     if(aux2=="" && aux3==""){
                         System.out.println("Empleado o documento no encontrado");
                     }else{
-                        emp.quitEmpelado(aux2);
+                        emp.quitEmpleado(aux2);
                         s.removeDocumento(aux3);
 
                     }
@@ -134,7 +135,7 @@ public class Main {
                 else if(aux2=="" && aux3==""){
                     System.out.println("Empleado o documento no encontrado");
                 }else{
-                    emp.quitEmpelado(aux2);
+                    emp.quitEmpleado(aux2);
                     p.removeDocumento(aux3);
 
                 }

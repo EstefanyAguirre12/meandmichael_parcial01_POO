@@ -42,7 +42,7 @@ public class Empresa {
         }
     }
 
-    public void quitEmpelado(String empleado) {
+    public void quitEmpleado(String empleado) {
         if(planilla.removeIf(s->s.getNombre().equals(empleado))) {
             System.out.println("Empleado despedido con exito");
         }
