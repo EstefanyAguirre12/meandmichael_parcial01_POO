@@ -8,25 +8,31 @@ public final class  CalculadoraImpuestos {
     public CalculadoraImpuestos(){
     }
     public static double calcularPago(Empleado em){
-        double restante=0, x=0, pago=0;
+        double restante=0, x=0, pago=0, AFP, ISSS, Renta;
         if (em instanceof PlazaFija){
-            totalAFP=em.salario*0.0625;
-            totalISSS=em.salario*0.03;
+            AFP=em.salario*0.0625;
+            ISSS=em.salario*0.03;
+            totalAFP=totalAFP+AFP;
+            totalISSS=totalISSS+ISSS;
             restante=em.salario-totalISSS-totalAFP;
             x=restante;
             if(x<=472){
-                em.salario=x;
+                Renta=0;
             }else if(x>=472.01 && x<=895.24){
-                totalRenta=0.1*(x-472)+17.67;
+                Renta=0.1*(x-472)+17.67;
+                totalRenta=Renta+totalRenta;
             }else if(x>=895.25 && x<=2038.10){
-                totalRenta=0.2*(x-895.24)+60;
+                Renta=0.2*(x-895.24)+60;
+                totalRenta=Renta+totalRenta;
             }else if(x>=2038.11){
-                totalRenta=0.3*(x-2038.10)+288.57;
+                Renta=0.3*(x-2038.10)+288.57;
+                totalRenta=Renta+totalRenta;
             }
             pago=restante-totalRenta;
         }
         else if(em instanceof ServicioProfesional) {
-            totalRenta=0.1*em.salario;
+            Renta=0.1*em.salario;
+            totalRenta=Renta+totalRenta;
             pago =em.salario-totalRenta;
         }
         return pago;
